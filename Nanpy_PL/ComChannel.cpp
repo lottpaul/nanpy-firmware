@@ -133,6 +133,96 @@ void nanpy::ComChannel::println(unsigned long val) {
 	client.println(val);
 }
 
+void nanpy::ComChannel::println(long long val) {
+	client.println(val);
+}
+
+void nanpy::ComChannel::println(unsigned long long val) {
+	client.println(val);
+}
+
+/*   Print Array of Values */
+void nanpy::ComChannel::println(String& val[], int n) {
+	client.print(val[0]);
+	for(int i = 1; i < n; i++){
+		client.print(",");
+		client.print(val[i]);
+	}
+	client.println("");
+}
+
+void nanpy::ComChannel::println(const char* val[], int n) {
+	client.print(val[0]);
+	for(int i = 1; i < n; i++){
+		client.print(",");
+		client.print(val[i]);
+	}
+	client.println("");
+}
+
+void nanpy::ComChannel::println(int val[], int n) {
+	client.print(val[0]);
+	for(int i = 1; i < n; i++){
+		client.print(",");
+		client.print(val[i]);
+	}
+	client.println("");
+}
+
+void nanpy::ComChannel::println(unsigned int val[], int n) {
+	client.print(val[0]);
+	for(int i = 1; i < n; i++){
+		client.print(",");
+		client.print(val[i]);
+	}
+	client.println("");
+}
+
+void nanpy::ComChannel::println(float val[], int n) {
+	client.print(val[0]);
+	for(int i = 1; i < n; i++){
+		client.print(",");
+		client.print(val[i]);
+	}
+	client.println("");
+}
+
+void nanpy::ComChannel::println(double val[], int n) {
+	client.print(val[0]);
+	for(int i = 1; i < n; i++){
+		client.print(",");
+		client.print(val[i]);
+	}
+	client.println("");
+}
+
+void nanpy::ComChannel::println(long val[], int n) {
+	client.print(val[0]);
+	for(int i = 1; i < n; i++){
+		client.print(",");
+		client.print(val[i]);
+	}
+	client.println("")
+}
+
+void nanpy::ComChannel::println(unsigned long val[], int n) {
+	client.print(val[0]);
+	for(int i = 1; i < n; i++){
+		client.print(",");
+		client.print(val[i]);
+	}
+	client.println("");
+}
+
+void nanpy::ComChannel::println(unsigned long long val, int n) {
+	client.print(val[0]);
+	for(int i = 1; i < n; i++){
+		client.print(",");
+		client.print(val[i]);
+	}
+	client.println("");
+}
+
 
 #else
 char nanpy::ComChannel::read_buffer[MAX_READ_BUFFER_SIZE] = {0};
@@ -166,36 +256,111 @@ void nanpy::ComChannel::connect() {
 }
 
 void nanpy::ComChannel::println(String& val) {
-    Serial.println(val);
+	Serial.println(val);
 }
 
 void nanpy::ComChannel::println(const char* val) {
-    Serial.println(val);
+	Serial.println(val);
 }
 
 void nanpy::ComChannel::println(int val) {
-    Serial.println(val);
+	Serial.println(val);
 }
 
 void nanpy::ComChannel::println(unsigned int val) {
-    Serial.println(val);
+	Serial.println(val);
 }
 
 void nanpy::ComChannel::println(float val) {
-    Serial.println(val);
+	Serial.println(val);
 }
 
 void nanpy::ComChannel::println(double val) {
-    Serial.println(val);
+	Serial.println(val);
 }
 
 void nanpy::ComChannel::println(long val) {
-    Serial.println(val);
+	Serial.println(val);
 }
 
 void nanpy::ComChannel::println(unsigned long val) {
-    Serial.println(val);
+	Serial.println(val);
 }
+
+/*   Print Array of Values */
+void nanpy::ComChannel::println(String val[], int n) {
+	Serial.print(val[0]);
+	for(int i = 1; i < n; i++){
+		Serial.print(",");
+		Serial.print(val[i]);
+	}
+	Serial.println("");
+}
+
+void nanpy::ComChannel::println(const char* val[], int n) {
+	Serial.print(val[0]);
+	for(int i = 1; i < n; i++){
+		Serial.print(",");
+		Serial.print(val[i]);
+	}
+	Serial.println("");
+}
+
+void nanpy::ComChannel::println(int val[], int n) {
+	Serial.print(val[0]);
+	for(int i = 1; i < n; i++){
+		Serial.print(",");
+		Serial.print(val[i]);
+	}
+	Serial.println("");
+}
+
+void nanpy::ComChannel::println(unsigned int val[], int n) {
+	Serial.print(val[0]);
+	for(int i = 1; i < n; i++){
+		Serial.print(",");
+		Serial.print(val[i]);
+	}
+	Serial.println("");
+}
+
+void nanpy::ComChannel::println(float val[], int n) {
+	Serial.print(val[0]);
+	for(int i = 1; i < n; i++){
+		Serial.print(",");
+		Serial.print(val[i]);
+	}
+	Serial.println("");
+}
+
+void nanpy::ComChannel::println(double val[], int n) {
+	Serial.print(val[0]);
+	for(int i = 1; i < n; i++){
+		Serial.print(",");
+		Serial.print(val[i]);
+	}
+	Serial.println("");
+}
+
+void nanpy::ComChannel::println(long val[], int n) {
+	Serial.print(val[0]);
+	for(int i = 1; i < n; i++){
+		Serial.print(",");
+		Serial.print(val[i]);
+	}
+	Serial.println("");
+}
+
+void nanpy::ComChannel::println(unsigned long val[], int n) {
+	Serial.print(val[0]);
+	for(int i = 1; i < n; i++){
+		Serial.print(",");
+		Serial.print(val[i]);
+	}
+	Serial.println("");
+}
+
+
 
 void nanpy::ComChannel::readLine(char* extbuff) {
     readLineFromSerial(extbuff);

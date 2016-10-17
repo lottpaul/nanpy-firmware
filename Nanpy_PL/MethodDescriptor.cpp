@@ -58,6 +58,31 @@ int nanpy::MethodDescriptor::getInt(int n) {
     return atoi(this->stack[n]);
 };
 
+uint8_t nanpy::MethodDescriptor::getUINT8(int n) {
+	return atoi(this->stack[n]);
+};
+
+uint16_t nanpy::MethodDescriptor::getUINT16(int n) {
+	return atoi(this->stack[n]);
+};
+
+uint32_t nanpy::MethodDescriptor::getUINT32(int n) {
+	return strtoul(this->stack[n], NULL, 10);
+};
+
+int8_t nanpy::MethodDescriptor::getINT8(int n) {
+	return atoi(this->stack[n]);
+};
+
+int16_t nanpy::MethodDescriptor::getINT16(int n) {
+	return atoi(this->stack[n]);
+};
+
+int32_t nanpy::MethodDescriptor::getINT32(int n) {
+	return atol(this->stack[n]);
+};
+
+
 byte nanpy::MethodDescriptor::getByte(int n) {
     return byte(getInt(n));
 };
@@ -88,33 +113,69 @@ char* nanpy::MethodDescriptor::getName() {
 
 void nanpy::MethodDescriptor::returns(String& val) {
     ComChannel::println(val);
-}
+};
 
 void nanpy::MethodDescriptor::returns(const char* val) {
     ComChannel::println(val);
-}
+};
 
 void nanpy::MethodDescriptor::returns(int val) {
     ComChannel::println(val);
-}
+};
 
 void nanpy::MethodDescriptor::returns(unsigned int val) {
     ComChannel::println(val);
-}
+};
 
 void nanpy::MethodDescriptor::returns(float val) {
     ComChannel::println(val);
-}
+};
 
 void nanpy::MethodDescriptor::returns(double val) {
     ComChannel::println(val);
-}
+};
 
 void nanpy::MethodDescriptor::returns(long val) {
     ComChannel::println(val);
-}
+};
 
 void nanpy::MethodDescriptor::returns(unsigned long val) {
     ComChannel::println(val);
-}
+};
+
+/* Return array of Values */
+void nanpy::MethodDescriptor::returns(String val[], int n) {
+	ComChannel::println(val, n);
+};
+
+void nanpy::MethodDescriptor::returns(const char* val[], int n) {
+	ComChannel::println(val, n);
+};
+
+void nanpy::MethodDescriptor::returns(int val[], int n) {
+	ComChannel::println(val, n);
+};
+
+void nanpy::MethodDescriptor::returns(unsigned int val[], int n) {
+	ComChannel::println(val, n);
+};
+
+void nanpy::MethodDescriptor::returns(float val[], int n) {
+	ComChannel::println(val, n);
+};
+
+void nanpy::MethodDescriptor::returns(double val[], int n) {
+	ComChannel::println(val, n);
+};
+
+void nanpy::MethodDescriptor::returns(long val[], int n) {
+	ComChannel::println(val, n);
+};
+
+void nanpy::MethodDescriptor::returns(unsigned long val[], int n) {
+	ComChannel::println(val, n);
+};
+
+
+	
 

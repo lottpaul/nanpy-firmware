@@ -1,6 +1,5 @@
 #include "cfg_all.h"
 
-
 #if USE_EEPROM
 #include <EEPROM.h>
 #endif
@@ -45,6 +44,10 @@
 #include <Adafruit_TLC5947.h>
 #endif
 
+#if USE_FastLED
+#include <FastLED.h>
+#endif
+
 #include "BaseClass.h"
 #include "ArduinoClass.h"
 #include "OneWireClass.h"
@@ -71,6 +74,7 @@
 
 #include "TLC5947Class.h"
 #include "EspClass.h"
+#include "FastLEDClass.h"
 
 using namespace nanpy;
 
@@ -78,11 +82,11 @@ MethodDescriptor *m = NULL;
 
 void setup() {
     disable_watchdog_at_startup();
-   
+
     REGISTER_CLASS(ArduinoClass);                                                   // 0.8 k
 
     REGISTER_CLASS_CONDITIONAL(nanpy::EEPROMClass, USE_EEPROM);                     // 0.3 k
-    REGISTER_CLASS_CONDITIONAL(nanpy::RAMClass, USE_RAM);                           // 
+    REGISTER_CLASS_CONDITIONAL(nanpy::RAMClass, USE_RAM);                           //
     REGISTER_CLASS_CONDITIONAL(LiquidCrystalClass, USE_LiquidCrystal);              //  2.3 k
     REGISTER_CLASS_CONDITIONAL(LiquidCrystalClass_I2C, USE_LiquidCrystal_I2C);
     REGISTER_CLASS_CONDITIONAL(OneWireClass, USE_OneWire);                          // 1.7 k
@@ -92,19 +96,19 @@ void setup() {
     REGISTER_CLASS_CONDITIONAL(ToneClass, USE_Tone);                                // 2.2 k
     REGISTER_CLASS_CONDITIONAL(CapacitiveSensorClass, USE_CapacitiveSensor);        // 2.2 k
     REGISTER_CLASS_CONDITIONAL(DefineClass, USE_Define);                            // 0.6 k
-    REGISTER_CLASS_CONDITIONAL(ArduinoCoreClass, USE_ArduinoCore);                  // 
+    REGISTER_CLASS_CONDITIONAL(ArduinoCoreClass, USE_ArduinoCore);                  //
     REGISTER_CLASS_CONDITIONAL(WatchdogClass, USE_Watchdog);                        // 0.2 k
     REGISTER_CLASS_CONDITIONAL(RegisterClass, USE_Register);                        // 1.5 k
 
-    REGISTER_CLASS_CONDITIONAL(CounterClass, USE_Counter);                          // 
-    REGISTER_CLASS_CONDITIONAL(InfoClass, USE_Info);                          // 
+    REGISTER_CLASS_CONDITIONAL(CounterClass, USE_Counter);                          //
+    REGISTER_CLASS_CONDITIONAL(InfoClass, USE_Info);                                //
     REGISTER_CLASS_CONDITIONAL(DHTClass, USE_DHT);
     REGISTER_CLASS_CONDITIONAL(WireClass, USE_Wire);
-    
+
     REGISTER_CLASS_CONDITIONAL(TLC5947Class, USE_TLC5947);
 
     REGISTER_CLASS_CONDITIONAL(nanpy::EspClass, USE_ESP);
-    
+    REGISTER_CLASS_CONDITIONAL(FastLEDClass, USE_FastLED);
     ComChannel::connect();
 }
 

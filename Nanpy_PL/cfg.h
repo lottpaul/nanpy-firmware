@@ -41,7 +41,7 @@
 // I2C
 #define USE_Wire                                    0
 
-#define USE_Servo                                   0
+#define USE_Servo                                   1
 
 #define USE_Stepper                                 0
 
@@ -70,4 +70,4 @@
 // https://www.adafruit.com/products/1429
 #define USE_TLC5947                                 0
 
-#define USE_FastLED									1
+#define USE_FastLED                                 1
